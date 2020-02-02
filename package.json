@@ -1,0 +1,27 @@
+{
+  "name": "disease-sim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BethanyDrake/disease-sim.git"
+  },
+  "keywords": [
+    "disease",
+    "contagious",
+    "simulation"
+  ],
+  "author": "Bethany Drake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BethanyDrake/disease-sim/issues"
+  },
+  "homepage": "https://github.com/BethanyDrake/disease-sim#readme",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
