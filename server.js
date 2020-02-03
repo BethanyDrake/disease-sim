@@ -10,7 +10,6 @@ const getResponse = () => {
   return "what?";
 }
 
-
 const server = http.createServer((req, res) => {
   console.log("um.... I think someone wants something");
   res.end(getResponse());
@@ -19,6 +18,11 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+
+const Simulation = require('./Simulation.js')
+Simulation.run();
+
 
 
 exports.getResponse = getResponse;
