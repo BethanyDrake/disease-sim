@@ -49,8 +49,9 @@ def run(populationSize = 10):
 
   return infectedPerDay
 
-populationSize = 300
-for i in range(20):
+populationSize = 2000
+trials = 1
+for i in range(trials):
     infectedPerDay = run(populationSize)
     plt.plot(infectedPerDay, color='blue', linewidth=0.5)
 
@@ -70,7 +71,8 @@ def logisticGrowFunction(t, K, r):
 logisticGrowModel = map(lambda x: logisticGrowFunction(x, k, r), range(totalDays))
 
 model = logisticGrowModel
-plt.plot(model, color='red', linewidth=2)
+# plt.plot(model, color='red', linewidth=2)
+plt.suptitle('N='+str(populationSize), fontsize=16)
 plt.ylabel('number infected')
 plt.xlabel('day')
 plt.show()
