@@ -1,6 +1,7 @@
 import random
 import matplotlib.pyplot as plt
 import math
+import numpy as np
 def initialisePopulation(populationSize = 10):
   people = []
   for x in range(populationSize):
@@ -34,7 +35,7 @@ def infectedCount(people):
 
 
 def run(populationSize = 10):
-  maxInteractions = populationSize * 100
+  maxInteractions = populationSize * 10
   interactions = 0
   people = initialisePopulation(populationSize)
 
@@ -50,7 +51,7 @@ def run(populationSize = 10):
   return infectedPerDay
 
 populationSize = 2000
-trials = 1
+trials = 5
 for i in range(trials):
     infectedPerDay = run(populationSize)
     plt.plot(infectedPerDay, color='blue', linewidth=0.5)
@@ -59,7 +60,9 @@ totalDays = len(infectedPerDay)
 linearModel = map(lambda x: x*populationSize/totalDays, range(totalDays))
 
 k = 1.0 * populationSize
-r = (2.0 / populationSize)
+r = (2.0 / populationSize) #guessed model
+# r = 1 + (1.0 / populationSize) #failed model 1
+# r = np.log(1 + 1.0 / populationSize) #failed model 2
 totalDays = 10* populationSize
 
 def logisticGrowFunction(t, K, r):
@@ -71,7 +74,7 @@ def logisticGrowFunction(t, K, r):
 logisticGrowModel = map(lambda x: logisticGrowFunction(x, k, r), range(totalDays))
 
 model = logisticGrowModel
-# plt.plot(model, color='red', linewidth=2)
+plt.plot(model, color='red', linewidth=2)
 plt.suptitle('N='+str(populationSize), fontsize=16)
 plt.ylabel('number infected')
 plt.xlabel('day')
