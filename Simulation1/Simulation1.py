@@ -50,8 +50,8 @@ def run(populationSize = 10):
 
   return infectedPerDay
 
-populationSize = 2000
-trials = 5
+populationSize = 200
+trials = 20
 for i in range(trials):
     infectedPerDay = run(populationSize)
     plt.plot(infectedPerDay, color='blue', linewidth=0.5)
@@ -60,9 +60,11 @@ totalDays = len(infectedPerDay)
 linearModel = map(lambda x: x*populationSize/totalDays, range(totalDays))
 
 k = 1.0 * populationSize
-r = (2.0 / populationSize) #guessed model
+#r = (2.0 / populationSize) #guessed model
 # r = 1 + (1.0 / populationSize) #failed model 1
 # r = np.log(1 + 1.0 / populationSize) #failed model 2
+
+r = np.log((populationSize + 1)/2.0) - np.log(populationSize/2.0)
 totalDays = 10* populationSize
 
 def logisticGrowFunction(t, K, r):
